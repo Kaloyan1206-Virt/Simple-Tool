@@ -1,12 +1,14 @@
 @echo off
+:menu
+cls
 color 5
+echo.
+echo.
 echo =====================================
-echo           Simple Tool
+echo            Simple Tool
 echo =====================================
-echo  .
-echo  .
-echo  .
-color 1
+echo.
+echo.
 echo 1) Start Task Manager
 echo 2) Start Registry Editor
 echo 3) Start File Explorer
@@ -18,66 +20,40 @@ echo 8) Get Information About Creator
 echo 9) Restart PC
 echo 10) Restart Program
 color 1
-set /p love=Choose an option: 
+set /p choice="Choose an option: "
 
-if %love%==1 goto love
-if %love%==2 goto hate
-if %love%==3 goto explorer
-if %love%==4 goto cmd
-if %love%==5 goto restart_explorer
-if %love%==6 goto exitt
-if %love%==7 goto leave
-if %love%==8 goto about
-if %love%==9 goto restart
-goto cs2
+:executeOption
+if "%choice%"=="1" (
+    start taskmgr.exe
+) else if "%choice%"=="2" (
+    start regedit.exe
+) else if "%choice%"=="3" (
+    start explorer.exe
+) else if "%choice%"=="4" (
+    start cmd.exe
+) else if "%choice%"=="5" (
+    echo Restarting Windows Explorer...
+    taskkill /f /im explorer.exe
+    start explorer.exe
+) else if "%choice%"=="6" (
+    echo Your computer will shutdown in 10 seconds...
+    shutdown -s -t 10
+) else if "%choice%"=="7" (
+    echo See you later
+    timeout /t 3 >nul
+    exit
+) else if "%choice%"=="8" (
+    start Creatorinf.cpp
+) else if "%choice%"=="9" (
+    echo Your computer will restart in 10 seconds...
+    shutdown -r -t 10
+) else if "%choice%"=="10" (
+    echo Restarting program...
+    timeout /t 2 >nul
+    goto menu
+) else (
+    echo Invalid option, try again.
+)
 
-:love
-start taskmgr.exe
-cls
-goto cs2
-
-:hate
-start regedit.exe 
-cls
-goto cs2
-
-:explorer
-start explorer.exe
-cls
-goto cs2
-
-:cmd
-start cmd.exe
-cls
-goto cs2
-
-:restart_explorer
-echo Restarting Windows Explorer...
-taskkill /f /im explorer.exe
-start explorer.exe
-cls
-goto cs2
-
-:exitt
-echo Your computer will shutdown in 10 seconds...
-shutdown -s -t 10
-goto leave
-
-:restart
-echo Your computer will restart in 10 seconds...
-shutdown -r -t 10
-goto leave
-
-:leave
-echo See you later
-timeout 3
-exit
-
-:about
-start Creatorinf.bat
-cls
-goto cs2
-
-:cs2
-cls
-goto cs2
+pause
+goto menu
