@@ -17,7 +17,6 @@ Do
     WScript.Echo "7) Close Program"
     WScript.Echo "8) Get Information About Creator"
     WScript.Echo "9) Restart PC"
-    WScript.Echo "0) Restart Program"
 
     ' Get the user's choice
     choice = InputBox("Choose an option:", "Simple Tool")
@@ -41,10 +40,7 @@ Do
         Case "8"
             Call GetCreatorInfo
         Case "9"
-            Call RestartPC
-        Case "0"
-            ' Restart the script by looping to the start
-            ' No need to explicitly restart since we're in a loop
+        
         Case Else
             WScript.Echo "Invalid option, try again."
     End Select
