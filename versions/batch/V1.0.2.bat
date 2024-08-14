@@ -16,7 +16,6 @@ echo 6) Shutdown PC
 echo 7) Close Program
 echo 8) Get Information About Creator
 echo 9) Restart PC
-echo 10) Restart Program
 color 1
 set /p love=Choose an option: 
 
