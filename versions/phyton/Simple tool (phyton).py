@@ -16,7 +16,6 @@ def main_menu():
     print("7) Close Program")
     print("8) Get Information About Creator")
     print("9) Restart PC")
-    print("0) Restart Program")
     print()
 
 def start_task_manager():
@@ -51,11 +50,6 @@ def close_program():
 def get_creator_info():
     subprocess.Popen("Creatorinf.bat")
 
-def restart_program():
-    print("Restarting the program...")
-    time.sleep(2)
-    main()
-
 def main():
     while True:
         main_menu()
@@ -79,8 +73,6 @@ def main():
             get_creator_info()
         elif choice == "9":
             restart_pc()
-        elif choice == "0":
-            restart_program()
         else:
             print("Invalid option, try again.")
 
